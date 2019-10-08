@@ -1,7 +1,5 @@
 import * as React from 'react'
 
-type Value = string | number | boolean | object
-
 /**
  * usePrevious hook
  *
@@ -11,8 +9,8 @@ type Value = string | number | boolean | object
  * @param value: Value
  * @returns Value
  */
-export function usePrevious(value: Value) {
-  const ref = React.useRef<Value | null>(null)
+export function usePrevious<T>(value: T) {
+  const ref = React.useRef<T | null>(null)
 
   React.useEffect(() => void (ref.current = value), [value])
 
