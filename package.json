@@ -18,7 +18,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint . --ext .ts,.tsx"
+      "pre-commit": "eslint . --ext .ts,.tsx",
+      "pre-push": "tsdx test --env=jsdom"
     }
   },
   "devDependencies": {
