@@ -21,17 +21,6 @@
       "pre-commit": "eslint . --ext .ts,.tsx"
     }
   },
-  "prettier": {
-    "printWidth": 80,
-    "tabWidth": 2,
-    "useTabs": false,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "all",
-    "bracketSpacing": true,
-    "jsxBracketSameLine": false,
-    "arrowParens": "avoid"
-  },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.1.1",
     "@testing-library/react": "^9.3.0",
