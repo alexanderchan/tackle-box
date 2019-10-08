@@ -6,8 +6,10 @@ import * as React from 'react'
  * Provides you with the value from the previous render of
  * the argument passed in
  *
- * @param value: Value
- * @returns Value
+ * Accepts type generic for the type of the value
+ *
+ * @param value: T
+ * @returns ref.current: T
  */
 export function usePrevious<T>(value: T) {
   const ref = React.useRef<T | null>(null)
