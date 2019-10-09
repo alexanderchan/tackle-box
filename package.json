@@ -1,6 +1,19 @@
 {
-  "name": "tackle-box",
+  "name": "@skyverge/tackle-box",
   "version": "0.1.0",
+  "author": "SkyVerge",
+  "description": "React hooks and helper functions for creating performant components and applicaitons",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skyverge/tackle-box.git"
+  },
+  "keywords": [
+    "react",
+    "hooks",
+    "sky verge",
+    "jilt"
+  ],
+  "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/tackle-box.esm.js",
   "typings": "dist/index.d.ts",
@@ -44,5 +57,9 @@
     "tsdx": "^0.9.3",
     "tslib": "^1.10.0",
     "typescript": "^3.6.3"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/skyverge/tackle-box/issues"
+  },
+  "homepage": "https://github.com/skyverge/tackle-box#readme"
 }
