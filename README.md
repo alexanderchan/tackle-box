@@ -3,6 +3,35 @@
 
 This consists of commonly used hooks, components, and helper functions for React projects. The main goal is to provide an opinionated and consistent approach to creating performant React applications and components. 
 
+## Installation and Usage
+
+The best and easiest way to use tackle-box is to install it from npm and build it into your app with Webpack or Parcel.
+
+```
+yarn add @skyverge/tackle-box // we prefer yarn
+npm install @skyverge/tackle-box
+```
+
+To use tackle-box in your app, you will need to import the appropriate hook or function and call it in your components.
+
+```tsx
+// Example of using the usePrevious hook
+
+import * as React from 'react'
+import { usePrevious } from '@skyverge/tackle-box'
+
+function App() {
+  const [count, setCount] = React.useState(0)
+  const prevCount = usePrevious(count)
+
+  return (
+    <button type="button" onClick={setCount(count + 1)}>
+      Increase count
+    </button>
+  )
+}
+```
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
