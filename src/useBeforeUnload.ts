@@ -1,5 +1,13 @@
 import * as React from 'react'
 
+/**
+ * useBeforeUnload hook
+ *
+ * Adds (and removes) the onUnload event based on a boolean
+ *
+ * @param enabled: boolean
+ * @returns void
+ */
 export function useBeforeUnload({
   enabled = true,
   onBeforeUnload,
