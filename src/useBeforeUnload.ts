@@ -1,13 +1,5 @@
-import * as React from 'react'
+import React from 'react'
 
-/**
- * useBeforeUnload hook
- *
- * Adds (and removes) the onUnload event based on a boolean
- *
- * @param enabled: boolean
- * @returns void
- */
 export function useBeforeUnload({
   enabled = true,
   onBeforeUnload,
@@ -16,23 +8,23 @@ export function useBeforeUnload({
   onBeforeUnload?: (e: BeforeUnloadEvent) => void
 }) {
   React.useEffect(() => {
-    const handler = (event: BeforeUnloadEvent) => {
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
       if (onBeforeUnload) {
         return onBeforeUnload(event)
       }
 
-      event.preventDefault()
-      event.returnValue = null
-
-      return event.returnValue
+      // Only IE
+      const confirmationMessage = 'Changes you made may not be saved.'
+      ;(event || window.event).returnValue = confirmationMessage //Gecko + IE
+      return confirmationMessage //Webkit, Safari, Chrome etc.
     }
 
     if (!enabled) {
-      window.removeEventListener('beforeunload', handler)
+      window.removeEventListener('beforeunload', handleBeforeUnload)
     } else {
-      window.addEventListener('beforeunload', handler)
+      window.addEventListener('beforeunload', handleBeforeUnload)
     }
 
-    return () => window.removeEventListener('beforeunload', handler)
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload)
   }, [enabled, onBeforeUnload])
 }
