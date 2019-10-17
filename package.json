@@ -1,6 +1,6 @@
 {
   "name": "@skyverge/tackle-box",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "SkyVerge",
   "description": "React hooks and helper functions for creating performant components and applicaitons",
   "repository": {
