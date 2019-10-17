@@ -1,22 +1,22 @@
 import React from 'react'
 
-export function useBeforeUnload({
-  enabled = true,
-  onBeforeUnload,
-}: {
-  enabled: boolean
-  onBeforeUnload?: (e: BeforeUnloadEvent) => void
-}) {
+// Unload
+function preventUnload(event) {
+  event.preventDefault()
+  // Only IE
+  const confirmationMessage = 'Changes you made may not be saved.'
+  ;(event || window.event).returnValue = confirmationMessage //Gecko + IE
+  return confirmationMessage //Webkit, Safari, Chrome etc.
+}
+
+/**
+ * @param {Boolean} enabled Blocks the unload if true
+ */
+
+export function useBeforeUnload({ enabled = true }: { enabled: boolean }) {
   React.useEffect(() => {
     const handleBeforeUnload = (event: BeforeUnloadEvent) => {
-      if (onBeforeUnload) {
-        return onBeforeUnload(event)
-      }
-
-      // Only IE
-      const confirmationMessage = 'Changes you made may not be saved.'
-      ;(event || window.event).returnValue = confirmationMessage //Gecko + IE
-      return confirmationMessage //Webkit, Safari, Chrome etc.
+      preventUnload(event)
     }
 
     if (!enabled) {
@@ -26,5 +26,5 @@ export function useBeforeUnload({
     }
 
     return () => window.removeEventListener('beforeunload', handleBeforeUnload)
-  }, [enabled, onBeforeUnload])
+  }, [enabled])
 }
