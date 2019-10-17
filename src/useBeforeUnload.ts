@@ -1,7 +1,7 @@
 import React from 'react'
 
 // Unload
-function preventUnload(event) {
+function preventUnload(event: BeforeUnloadEvent) {
   event.preventDefault()
   // Only IE
   const confirmationMessage = 'Changes you made may not be saved.'
