@@ -1,7 +1,7 @@
-# SkyVerge Tackle Box 
+# SkyVerge Tackle Box
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 
-This consists of commonly used hooks, components, and helper functions for React projects. The main goal is to provide an opinionated and consistent approach to creating performant React applications and components. 
+This consists of commonly used hooks, components, and helper functions for React projects. The main goal is to provide an opinionated and consistent approach to creating performant React applications and components.
 
 ## Installation and Usage
 
@@ -31,6 +31,53 @@ function App() {
   )
 }
 ```
+
+
+## `useLocalStorage`
+
+Persists values to localstorage
+
+### Example
+
+```tsx
+import { useLocalStorage } from '../../src/useLocalStorage'
+
+export default function UseLocalStorage() {
+  const [isChecked, setIsChecked] = useLocalStorage('checked', false)
+
+  return (
+    <div>
+      <label>This checkbox uses local storage refresh</label>
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={() => setIsChecked(!isChecked)}
+      ></input>
+
+      <div onClick={() => location.reload()}>Refresh the page</div>
+    </div>
+  )
+}
+```
+
+### Function Signature
+
+```tsx
+  function useLocalStorage<T>(
+    key: string,
+    initialValue: T,
+  ): [T, (value: T) => void]
+```
+
+### Params
+
+#### `key`
+
+The key to use to store
+
+#### `initialValue`
+
+The initial value
 
 ## Contributors ✨
 

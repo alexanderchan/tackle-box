@@ -1,4 +1,6 @@
 import React from 'react'
+// based on https://usehooks.com/useLocalStorage/
+// with added updates when the key changes and event listener
 
 function stringify<T>(value: T) {
   return typeof value === 'string' ? value : JSON.stringify(value)

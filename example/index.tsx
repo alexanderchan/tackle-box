@@ -4,6 +4,7 @@ import * as ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import UsePrevious from './components/UsePrevious'
 import UseBeforeUnload from './components/UseBeforeUnload'
+import UseLocalStorage from './components/UseLocalStorage'
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
         <li>
           <Link to="/use-before-unload">useBeforeUnload</Link>
         </li>
+        <li>
+          <Link to="/use-local-storage">useLocalStorage</Link>
+        </li>
       </ul>
       <Switch>
         <Route path="/use-previous">
@@ -22,6 +26,9 @@ function App() {
         </Route>
         <Route path="/use-before-unload">
           <UseBeforeUnload />
+        </Route>
+        <Route path="/use-local-storage">
+          <UseLocalStorage />
         </Route>
       </Switch>
     </Router>
