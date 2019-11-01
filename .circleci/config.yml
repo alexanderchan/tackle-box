@@ -3,7 +3,7 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 version: 2.1
 jobs:
-  test:
+  run-tests:
     docker:
       # specify the version you desire here
       - image: circleci/node:12.9.1
@@ -29,3 +29,9 @@ jobs:
 
       # run tests!
       - run: yarn test
+
+workflows:
+  version: 2
+  test-suite:
+    jobs:
+      - run-tests
