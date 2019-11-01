@@ -37,7 +37,7 @@ describe('useLocalStorage', () => {
       test: false,
     })
 
-    const { result: result2 } = renderHook(
+    const { result: result2, rerender } = renderHook(
       ({ key, initialValue }) => useLocalStorage(key, initialValue),
       {
         initialProps: {
@@ -48,5 +48,9 @@ describe('useLocalStorage', () => {
     )
     // it should retrieve the result in subsequent render
     expect(result2.current[0]).toEqual({ test: false })
+
+    // A different key starts with the initial value
+    rerender({ key: 'differentKey', initialValue: { test: true } })
+    expect(result2.current[0]).toEqual({ test: true })
   })
 })
