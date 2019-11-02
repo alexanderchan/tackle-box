@@ -6,7 +6,7 @@ jobs:
   run-tests:
     docker:
       # specify the version you desire here
-      - image: circleci/node:12.9.1
+      - image: circleci/node:lts
 
     working_directory: ~/repo
 
